@@ -1,0 +1,153 @@
+{
+    "version": "Notebook/1.0",
+    "items": [
+      {
+        "type": 1,
+        "content": {
+          "json": "## New workbook\n---\n\nWelcome to your new workbook.  This area will display text formatted as markdown.\n\n\nWe've included a basic analytics query to get you started. Use the `Edit` button below each section to configure it or add more sections."
+        },
+        "name": "text - 2"
+      },
+      {
+        "type": 10,
+        "content": {
+          "chartId": "workbook78aab53d-e00b-4ff8-ac02-f5373a7f30ca",
+          "version": "MetricsItem/2.0",
+          "size": 0,
+          "chartType": 2,
+          "resourceType": "microsoft.insights/components",
+          "metricScope": 0,
+          "resourceIds": [
+            "/subscriptions/d715d5e4-d389-48cd-8418-8514bea2a27e/resourceGroups/padasildemoinsights/providers/microsoft.insights/components/padasildemoinsights"
+          ],
+          "timeContext": {
+            "durationMs": 3600000
+          },
+          "metrics": [
+            {
+              "namespace": "microsoft.insights/components/kusto",
+              "metric": "microsoft.insights/components/kusto-Server-requests/count",
+              "aggregation": 1,
+              "splitBy": null
+            }
+          ],
+          "gridSettings": {
+            "rowLimit": 10000
+          }
+        },
+        "customWidth": "30",
+        "name": "metric - 1"
+      },
+      {
+        "type": 3,
+        "content": {
+          "version": "KqlItem/1.0",
+          "query": "requests\r\n| where timestamp > ago(1h)\r\n| summarize count() by resultCode\r\n| render piechart",
+          "size": 0,
+          "title": "Request in the Last Hour",
+          "queryType": 0,
+          "resourceType": "microsoft.insights/components"
+        },
+        "customWidth": "25",
+        "name": "query - 2"
+      },
+      {
+        "type": 3,
+        "content": {
+          "version": "KqlItem/1.0",
+          "query": "pageViews\r\n| summarize dcount(session_Id) by client_Browser\r\n| render piechart",
+          "size": 0,
+          "title": "Browsers in the last hour",
+          "timeContext": {
+            "durationMs": 3600000
+          },
+          "queryType": 0,
+          "resourceType": "microsoft.insights/components"
+        },
+        "customWidth": "25",
+        "name": "query - 5"
+      },
+      {
+        "type": 3,
+        "content": {
+          "version": "KqlItem/1.0",
+          "query": "pageViews\r\n| summarize dcount(session_Id) by client_City\r\n| render piechart",
+          "size": 0,
+          "title": "Cities in the last hour",
+          "timeContext": {
+            "durationMs": 3600000
+          },
+          "queryType": 0,
+          "resourceType": "microsoft.insights/components"
+        },
+        "customWidth": "20",
+        "name": "query - 6"
+      },
+      {
+        "type": 10,
+        "content": {
+          "chartId": "workbook62bfd83a-51ea-496b-8d1e-41ec5ecc8386",
+          "version": "MetricsItem/2.0",
+          "size": 0,
+          "chartType": 2,
+          "resourceType": "microsoft.web/serverfarms",
+          "metricScope": 0,
+          "resourceIds": [
+            "/subscriptions/d715d5e4-d389-48cd-8418-8514bea2a27e/resourceGroups/padasildemoinsights/providers/Microsoft.Web/serverFarms/padasildemoinsights"
+          ],
+          "timeContext": {
+            "durationMs": 3600000
+          },
+          "metrics": [
+            {
+              "namespace": "microsoft.web/serverfarms",
+              "metric": "microsoft.web/serverfarms--CpuPercentage",
+              "aggregation": 4,
+              "splitBy": null
+            }
+          ],
+          "title": "CPU Usage in the Last Hour",
+          "gridSettings": {
+            "rowLimit": 10000
+          }
+        },
+        "customWidth": "50",
+        "name": "metric - 3"
+      },
+      {
+        "type": 10,
+        "content": {
+          "chartId": "workbook470cd8df-a7a0-492a-9d86-6d8e0ab22b3e",
+          "version": "MetricsItem/2.0",
+          "size": 0,
+          "chartType": 2,
+          "resourceType": "microsoft.web/serverfarms",
+          "metricScope": 0,
+          "resourceIds": [
+            "/subscriptions/d715d5e4-d389-48cd-8418-8514bea2a27e/resourceGroups/padasildemoinsights/providers/Microsoft.Web/serverFarms/padasildemoinsights"
+          ],
+          "timeContext": {
+            "durationMs": 3600000
+          },
+          "metrics": [
+            {
+              "namespace": "microsoft.web/serverfarms",
+              "metric": "microsoft.web/serverfarms--MemoryPercentage",
+              "aggregation": 4,
+              "splitBy": null
+            }
+          ],
+          "title": "Memory Usage in the Last Hour",
+          "gridSettings": {
+            "rowLimit": 10000
+          }
+        },
+        "customWidth": "50",
+        "name": "metric - 4"
+      }
+    ],
+    "fallbackResourceIds": [
+      "/subscriptions/d715d5e4-d389-48cd-8418-8514bea2a27e/resourceGroups/padasildemoinsights/providers/microsoft.insights/components/padasildemoinsights"
+    ],
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
+  }
